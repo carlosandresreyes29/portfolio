@@ -1,0 +1,5 @@
+This folder contains all images for the portfolio website.
+
+Please add your images here following the naming convention in ASSETS-CHECKLIST.md
+
+Images will be referenced in HTML files as: src="assets/img/filename.png"
