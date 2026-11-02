@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,400;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,400;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -145,18 +145,86 @@
                         <img src="assets/img/mirror-usability-sesion.png" alt="Illustration Research" class="img-fluid">
                     </div>
                     <div class="col-lg-6">
-                        <h3 class="subsection-title">B. Mirror Usability Testing</h3>
+                        <h3 class="subsection-title">B. Mirror Usability Testing</h3>
                         <p class="subsection-description">
                             Helped carry out an innovative "mirror testing" environment to validate these prototypes. By eliminating the traditional "observer effect," this framework allowed neurodivergent participants to interact with the interface naturally and stress-free, capturing highly accurate, unskewed behavioral data.
                         </p>
                     </div>
                 </div>
 
-                
+                <!-- Mirror Testing Evidence Module -->
+                <div class="mt-panel mb-5">
+                    <div class="row g-4">
+
+                        <!-- Mini Setup -->
+                        <div class="col-lg-5">
+                            <span class="mt-chip">Mini Setup</span>
+                            <div class="mt-setup">
+                                <div class="mt-node">
+                                    <p class="mt-node-label">Node 01</p>
+                                    <p class="mt-node-title">User</p>
+                                    <p class="mt-node-sub">Interacts without being observed</p>
+                                </div>
+
+                                <div class="mt-link">
+                                    <span class="mt-link-line"></span>
+                                    <span class="mt-link-char">⟷</span>
+                                    <span class="mt-link-line"></span>
+                                </div>
+
+                                <div class="mt-node">
+                                    <p class="mt-node-label">Node 02</p>
+                                    <p class="mt-node-title">Moderator / Note-Taker</p>
+                                    <p class="mt-node-sub">Live logging · without interrupting</p>
+                                </div>
+
+                                <div class="mt-link">
+                                    <span class="mt-link-line"></span>
+                                    <span class="mt-link-char">│</span>
+                                    <span class="mt-link-line"></span>
+                                </div>
+
+                                <div class="mt-node node-mirror">
+                                    <p class="mt-node-label">Node 03 · Mirror Room</p>
+                                    <p class="mt-node-title">Friction Log</p>
+                                    <p class="mt-node-sub">You: flag questions, silences and blocks</p>
+                                </div>
+                            </div>
+                            <p class="mt-setup-note">The mirror room removes the observer effect: the participant behaves naturally while friction is logged in real time by the design team behind the glass.</p>
+                        </div>
+
+                        <!-- Friction vs. Solution -->
+                        <div class="col-lg-7">
+                            <span class="mt-chip">Friction vs. Solution</span>
+                            <div class="row g-4">
+
+                                <!-- Screen V1 -->
+                                <div class="col-md-6">
+                                    <span class="mt-tag">Screen V1 · Error</span>
+                                    <div class="mt-phone">
+                                        <img src="assets/img/neurosync-mirror-v1.png" alt="Assistant home, before: an empty prompt with no guidance on where to start" class="mt-screen-img">
+                                    </div>
+                                    <p class="mt-caption"><strong>Before — high cognitive load</strong>The user freezes, unsure which path to take to start interacting with the assistant.</p>
+                                </div>
+
+                                <!-- Screen V2 -->
+                                <div class="col-md-6">
+                                    <span class="mt-tag">Screen V2 · Solution</span>
+                                    <div class="mt-phone">
+                                        <img src="assets/img/neurosync-mirror-v2.png" alt="Assistant home, after: suggestion chips surface three possible starting paths" class="mt-screen-img">
+                                    </div>
+                                    <p class="mt-caption"><strong>After — single focus</strong>Support chips surface possible paths, reducing the anxiety of deciding where to start.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
                  <div class="row align-items-start g-5 mb-5">
                     <div class="col-lg-6">
-                        <h3 class="subsection-title">C. Designing for Cognitive Accessibility</h3>
+                        <h3 class="subsection-title">C. Designing for Cognitive Accessibility</h3>
                         <p class="subsection-description">
                             Collaborative ideation sessions were headed up to establish an accessible, psychologically grounded in-app illustration framework. These visuals were utilized as intuitive signposts throughout the interface, whereby cognitive friction was successfully reduced and complex journeys were made to feel safe and predictable.
                         </p>
@@ -165,6 +233,169 @@
                         <img src="assets/img/workshop-board.png" alt="Workshops board" class="img-fluid">
                     </div>
                 </div>
+
+                <!-- Cognitive Design System & Accessibility Spec (Figma node 4048:582) -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <span class="mt-tag mt-tag-flush">NeuroSync Design System &amp; Accessibility Spec</span>
+                        <p class="subsection-description mb-4">
+                            Every token in the system was audited before shipping: contrast ratios were computed against WCAG 2.2, component states were documented in full, and the type scale was locked to a two-font pairing that keeps long-form reading calm and predictable.
+                        </p>
+                        <div class="sc-card">
+                            <div class="sc-header">
+                                <span class="sc-meta">Primitives + Themes · WCAG 2.2</span>
+                            </div>
+                            <div class="sc-body">
+                                <div class="row g-4">
+
+                                    <!-- Color & Contrast -->
+                                    <div class="col-lg-6">
+                                        <p class="sc-section-title">Color &amp; Contrast</p>
+
+                                        <div class="sc-color-row">
+                                            <span class="sc-swatch sc-swatch-body"></span>
+                                            <div class="sc-color-info">
+                                                <p class="sc-color-name">Body on Surface/Default</p>
+                                                <p class="sc-color-hex">#2A2A2A</p>
+                                            </div>
+                                            <span class="sc-pill sc-pill-aaa">Ratio 13.1:1 · AAA</span>
+                                        </div>
+
+                                        <div class="sc-color-row">
+                                            <span class="sc-swatch sc-swatch-link"></span>
+                                            <div class="sc-color-info">
+                                                <p class="sc-color-name">Link on Surface/Default</p>
+                                                <p class="sc-color-hex">#A75339</p>
+                                            </div>
+                                            <span class="sc-pill sc-pill-aa">Ratio 4.9:1 · AA</span>
+                                        </div>
+
+                                        <div class="sc-color-row">
+                                            <span class="sc-swatch sc-swatch-primary"></span>
+                                            <div class="sc-color-info">
+                                                <p class="sc-color-name">Button/Primary label</p>
+                                                <p class="sc-color-hex">#FFFFFF on #7672DC</p>
+                                            </div>
+                                            <span class="sc-pill sc-pill-aa">Ratio 4.0:1 · AA lg</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Component States -->
+                                    <div class="col-lg-6 sc-states-col">
+                                        <p class="sc-section-title">Component States — Button/Primary</p>
+
+                                        <div class="sc-state-row">
+                                            <span class="sc-chip sc-chip-default">Default</span>
+                                            <p class="sc-state-desc">bg #7672DC · label #FFFFFF</p>
+                                        </div>
+
+                                        <div class="sc-state-row">
+                                            <span class="sc-chip sc-chip-focus">Focus</span>
+                                            <p class="sc-state-desc">2px ring · border-default #7672DC</p>
+                                        </div>
+
+                                        <div class="sc-state-row">
+                                            <span class="sc-chip sc-chip-pressed">Pressed</span>
+                                            <p class="sc-state-desc">bg #625FB7 · label #D5D3FF</p>
+                                        </div>
+
+                                        <div class="sc-state-row">
+                                            <span class="sc-chip sc-chip-disabled">Disabled</span>
+                                            <p class="sc-state-desc">bg #C6C6C6 · label #717171</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Typography Scale -->
+                                <div class="sc-type-section">
+                                    <p class="sc-section-title">Typography Scale — DM Sans + Inter</p>
+                                    <div class="row g-4">
+                                        <div class="col-md-4">
+                                            <p class="sc-type-sample-heading">Heading 24px</p>
+                                            <p class="sc-type-meta">DM Sans Bold · LH 32px · Headings/Midsize</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="sc-type-sample-body">Body 16px — calm, long-form readable copy for low-stimulus reading.</p>
+                                            <p class="sc-type-meta">Inter Regular · LH 22px · Body/Midsize</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="sc-type-sample-caption">Caption 12px</p>
+                                            <p class="sc-type-meta">Inter Medium · LH 14px · Caption</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scaffolding Logic (IA) (Figma node 4048:795) -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <span class="mt-tag mt-tag-flush">Scaffolding Logic (IA)</span>
+                        <p class="subsection-description mb-4">
+                            The information architecture follows a three-step scaffold: a single raw sentence is captured without structure, decomposed by predictable business rules, and returned as one clean, low-stimulus action &mdash; the user never faces the full backlog at once.
+                        </p>
+
+                        <div class="sl-flow" style="padding: 0;">
+
+                            <!-- Step 1 · Raw Input -->
+                            <div class="sl-step sl-step-1">
+                                <span class="sl-pill">Step 1</span>
+                                <p class="sl-label">Raw Input</p>
+                                <p class="sl-heading">Chaotic input</p>
+                                <div class="sl-quote">
+                                    <p class="sl-quote-text">&ldquo;I have to clean the whole apartment and buy groceries.&rdquo;</p>
+                                </div>
+                                <p class="sl-caption">Voice or text capture &middot; 1 single sentence, 42 pending items</p>
+                            </div>
+
+                            <div class="sl-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+
+                            <!-- Step 2 · AI Scaffolding Engine -->
+                            <div class="sl-step sl-step-2">
+                                <span class="sl-pill">Step 2</span>
+                                <p class="sl-label">AI Scaffolding Engine</p>
+                                <p class="sl-heading">Business rule</p>
+                                <div class="sl-engine">
+                                    <div class="sl-eng-item">
+                                        <i class="fa-solid fa-scissors sl-eng-icon" aria-hidden="true"></i>
+                                        <p class="sl-eng-text">Breaks the massive task into micro-steps under 15 min</p>
+                                    </div>
+                                    <div class="sl-eng-item">
+                                        <i class="fa-solid fa-stopwatch sl-eng-icon" aria-hidden="true"></i>
+                                        <p class="sl-eng-text">Assigns a predictable timer per step</p>
+                                    </div>
+                                    <div class="sl-eng-item">
+                                        <i class="fa-solid fa-filter sl-eng-icon" aria-hidden="true"></i>
+                                        <p class="sl-eng-text">Filters out secondary environmental stimuli</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sl-arrow sl-arrow-2" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+
+                            <!-- Step 3 · Low-Stimulus UI Output -->
+                            <div class="sl-step sl-step-3">
+                                <span class="sl-pill">Step 3</span>
+                                <p class="sl-label">Low-Stimulus UI Output</p>
+                                <p class="sl-heading">Solution</p>
+                                <div class="sl-output">
+                                    <p class="sl-output-kicker">Today &middot; Step 1</p>
+                                    <p class="sl-output-title">Take out the trash</p>
+                                    <div class="sl-output-pill">
+                                        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                                        <span>5 mins &middot; the only one on screen</span>
+                                    </div>
+                                </div>
+                                <p class="sl-caption">Clean card &middot; zero notifications &middot; a single action</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
                  <div class="row align-items-start g-5 mb-5">
                     <div class="col-lg-6 text-center">
                         <img src="assets/img/app-images.png" alt="Illustration Research" class="img-fluid">
