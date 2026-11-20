@@ -106,6 +106,34 @@
             </div>
         </section>
 
+        <!-- Design Problem & Hypothesis -->
+        <section class="py-5" id="design-problem">
+            <div class="container-custom">
+                <h2 class="section-stage-title mb-4">The design problem &amp; hypothesis</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="cs-problem-card">
+                            <h3 class="cs-problem-label">What I observed</h3>
+                            <p class="cs-problem-text">Compliance officers re-typed the same company data on every certificate and hunted for required fields buried in the middle of a single, unstructured form.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cs-problem-card">
+                            <h3 class="cs-problem-label">What was asked vs. what I saw</h3>
+                            <p class="cs-problem-text">Stakeholders asked for a cleaner, faster form. What users actually struggled with was structure — one flat list showing everything at once — not styling.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cs-problem-card cs-problem-card-hypo">
+                            <h3 class="cs-problem-label">Hypothesis</h3>
+                            <p class="cs-problem-text">If the flat form is restructured into a guided path that surfaces only the fields each step needs, users will complete certificate issuance with less friction and fewer entry errors — without breaking SLDS.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="subsection-description mt-4 mb-0">How I set myself up to solve it: map the end-to-end journey first (Stage 1), then design the hierarchy (Stage 2) and validate it with stakeholders in the same week (Stage 3).</p>
+            </div>
+        </section>
+
         <!-- Stage 1 -->
         <section class="py-5">
             <div class="container-custom">
@@ -145,6 +173,65 @@
                 <div class="text-center my-5">
                     <img src="assets/img/CS-004.png" alt="Wireframe" class="img-fluid">
                 </div>
+
+                <!-- Evidence: Information Architecture — chaotic fields vs. structured 3-step form -->
+                <div class="mt-5" id="ia-3-step-wizard">
+                    <div class="row g-4 align-items-stretch">
+                        <div class="col-lg-5">
+                            <span class="cs-tag">Before · One flat list</span>
+                            <div class="cs-ia-before">
+                                <div class="cs-ia-head">
+                                    <span class="cs-ia-head-title">Transactional Certificate — data entry</span>
+                                    <span class="cs-ia-count">30+ loose fields</span>
+                                </div>
+                                <div class="cs-field-cloud">
+                                    <span class="cs-field">Certified Company</span>
+                                    <span class="cs-field">License ID</span>
+                                    <span class="cs-field">Standard</span>
+                                    <span class="cs-field">Transaction ID</span>
+                                    <span class="cs-field">TC Number</span>
+                                    <span class="cs-field">Issue Date</span>
+                                    <span class="cs-field">Expiry Date</span>
+                                    <span class="cs-field">Material Type</span>
+                                    <span class="cs-field">Fabric Composition</span>
+                                    <span class="cs-field">GRS Content %</span>
+                                    <span class="cs-field">Origin Country</span>
+                                    <span class="cs-field">Manufacturer ID</span>
+                                    <span class="cs-field">Mill Name</span>
+                                    <span class="cs-field">Scope Cert #</span>
+                                    <span class="cs-field">Audit Report #</span>
+                                    <span class="cs-field">Test Method</span>
+                                    <span class="cs-field">Lab Result</span>
+                                    <span class="cs-field">Chain of Custody</span>
+                                    <span class="cs-field">Shipping Docs</span>
+                                    <span class="cs-field is-more">+13 more fields…</span>
+                                </div>
+                                <div class="cs-flags">
+                                    <span class="cs-flag"><i class="fas fa-times-circle"></i> Company data re-typed on every certificate</span>
+                                    <span class="cs-flag"><i class="fas fa-times-circle"></i> Required compliance field buried mid-form</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-1 d-none d-lg-flex cs-arrow-col">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <span class="cs-tag cs-tag-dark">After · Guided 3-step wizard</span>
+                            <div class="cs-ia-after">
+                                <div class="cs-rail-card">
+                                    <img src="assets/img/CS-006.png" alt="Product step rail: General Information, Manage TC Products, Documentation &amp; Declarations" class="cs-rail-img">
+                                    <p class="cs-rail-cap">One guided path — <strong>General Information → Manage TC Products → Documentation &amp; Declarations</strong>. Each step surfaces only the fields it needs, in order, so users never face the 30-field screen at once.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cs-note">
+                        <strong>Engineered the Information Architecture</strong> to streamline over 30 fragmented compliance data fields into a guided 3-step progressive disclosure wizard, reducing user entry error rate.
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -163,6 +250,173 @@
                 
                 <div class="text-center my-5">
                     <img src="assets/img/CS-005.png" alt="Hi-Fi Prototype" class="img-fluid">
+                </div>
+
+                <!-- Sub-section: Design System & SLDS Integration -->
+                <h3 class="subsection-title mt-5 mb-4" id="slds-integration">Design System &amp; SLDS Integration</h3>
+
+                <!-- Evidence: SLDS spec sheet — base component vs. customized extension -->
+                <div class="cs-spec">
+                    <div class="cs-spec-head">
+                        <p class="cs-spec-title">SALESFORCE SLDS SPEC SHEET &amp; DEV HANDOFF</p>
+                        <span class="cs-spec-meta">ChainSync · SLDS v2 · Handoff v1.0</span>
+                    </div>
+
+                    <div class="cs-spec-grid">
+                        <!-- Left: native base component -->
+                        <div class="cs-spec-cell">
+                            <p class="cs-spec-label">Left — SLDS Base Component (native)</p>
+                            <div class="sf-win">
+                                <div class="sf-bar"><span>New Transactional Certificate</span><span class="sf-x">&times;</span></div>
+                                <div class="sf-body">
+                                    <label class="sf-label">Transaction Type<span class="sf-req">*</span></label>
+                                    <div class="sf-input ph">Select<span class="sf-caret">&#9662;</span></div>
+                                    <label class="sf-label">Certified Company<span class="sf-req">*</span></label>
+                                    <div class="sf-input ph">Select<span class="sf-caret">&#9662;</span></div>
+                                    <label class="sf-label">Standard</label>
+                                    <div class="sf-input">GRS 4.0</div>
+                                </div>
+                                <div class="sf-foot">
+                                    <span class="sf-btn ghost">Cancel</span>
+                                    <span class="sf-btn brand">Save</span>
+                                </div>
+                            </div>
+                            <p class="sf-meta"><i class="fas fa-lock"></i> Unmodified platform modal: 1px borders, brand button <strong>#0176D3</strong>, system font stack, native spacing scale. Zero CSS overrides — platform updates stay safe.</p>
+                        </div>
+
+                        <!-- Right: customized extension — real capture from the design -->
+                        <div class="cs-spec-cell">
+                            <p class="cs-spec-label">Right — Customized Extension (responsive)</p>
+                            <div class="cs-shot-card">
+                                <img src="assets/img/CS-007.png" alt="Customized extension as implemented: numbered, grouped sections with responsive fields">
+                            </div>
+                            <p class="sf-meta"><i class="fas fa-puzzle-piece"></i> Same tokens, extended layout: grouped numbered sections and responsive columns — implemented in the TC Input screen without touching SLDS core selectors.</p>
+                        </div>
+
+                        <!-- Token mapping -->
+                        <div class="cs-spec-cell full">
+                            <p class="cs-spec-label">Token mapping — what engineering inherits</p>
+                            <div class="cs-trow">
+                                <span class="cs-tkey">Color</span>
+                                <span class="cs-tval"><code>--slds-g-color-brand-base-100</code> · success / error / warning states kept native</span>
+                                <span class="cs-pill theme">Theme-mapped</span>
+                            </div>
+                            <div class="cs-trow">
+                                <span class="cs-tkey">Grid &amp; Layout</span>
+                                <span class="cs-tval">12-column SLDS grid · 24px gutters — wizard steps snap to the same columns</span>
+                                <span class="cs-pill">Native</span>
+                            </div>
+                            <div class="cs-trow">
+                                <span class="cs-tkey">Spacing</span>
+                                <span class="cs-tval">4px base scale (<code>--slds-spacing-*</code>) — 16px field rhythm, 24px section gaps</span>
+                                <span class="cs-pill">Native</span>
+                            </div>
+                            <div class="cs-trow">
+                                <span class="cs-tkey">Typography</span>
+                                <span class="cs-tval">Salesforce Sans → Arial fallback · weights 400 / 700 only, no webfont added</span>
+                                <span class="cs-pill">Native</span>
+                            </div>
+                            <div class="cs-trow">
+                                <span class="cs-tkey">Components</span>
+                                <span class="cs-tval">modal · input · button · path — extended, never overridden</span>
+                                <span class="cs-pill plain">No override</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cs-note">
+                    <strong>Built within strict Salesforce Lightning Design System (SLDS) constraints.</strong> Applied native SLDS tokens (colors, grid layout, and form components) to ensure 100% technical feasibility for engineering without breaking platform updates.
+                </div>
+
+                <!-- Evidence: Sprint feedback — annotated prototype review -->
+                <div class="mt-5" id="sprint-validation">
+                    <div class="row g-4 align-items-start">
+                        <div class="col-lg-7">
+                            <span class="cs-tag cs-tag-dark">Annotated review · TC Input</span>
+                            <div class="cs-proto-wrap">
+                                <div class="cs-proto">
+                                    <div class="cs-proto-chrome">
+                                        <span class="cs-dot"></span><span class="cs-dot"></span><span class="cs-dot"></span>
+                                        <span class="cs-url">source-0clear.com / tc-input / C-0168762</span>
+                                    </div>
+                                    <div class="cs-shot">
+                                        <img src="assets/img/CS-008.png" alt="TC Input prototype screen reviewed with stakeholders">
+                                        <span class="cs-pin cs-pin-1"><span>1</span></span>
+                                        <span class="cs-pin cs-pin-2"><span>2</span></span>
+                                        <span class="cs-pin cs-pin-3"><span>3</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <span class="cs-tag">Approvals on record</span>
+
+                            <div class="cs-callout">
+                                <span class="cs-callout-badge cs-badge-green">1</span>
+                                <div>
+                                    <p class="cs-callout-role">Client · Business</p>
+                                    <p class="cs-callout-title">3-step issuance flow approved</p>
+                                    <p class="cs-callout-text">Sign-off secured on the guided wizard: provider, material and compliance read as one continuous path with no dead ends.</p>
+                                </div>
+                            </div>
+
+                            <div class="cs-callout">
+                                <span class="cs-callout-badge cs-badge-blue">2</span>
+                                <div>
+                                    <p class="cs-callout-role">Engineering · Technical</p>
+                                    <p class="cs-callout-title">Feasible on SLDS, no overrides</p>
+                                    <p class="cs-callout-text">Spec sheet accepted as-is: native tokens and extended components only, so platform updates won't break the build.</p>
+                                </div>
+                            </div>
+
+                            <div class="cs-callout">
+                                <span class="cs-callout-badge cs-badge-gold">3</span>
+                                <div>
+                                    <p class="cs-callout-role">Compliance SME</p>
+                                    <p class="cs-callout-title">Validation runs inline, zero friction</p>
+                                    <p class="cs-callout-text">Every required field is checked before submission — no error hunting across a 30-field screen.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cs-note">
+                        <strong>Rapid Sprint Validation:</strong> Conducted an end-of-week design review with key stakeholders. Secured instant sign-off on the 3-step certificate issuance flow by proving zero friction in data validation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Outputs & End-to-End Results -->
+        <section class="py-5" id="final-outputs">
+            <div class="container-custom">
+                <h2 class="section-stage-title mb-4">Final outputs &amp; end-to-end results</h2>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="cs-outputs">
+                            <p class="cs-outputs-title">Delivered handoff package</p>
+                            <ul class="cs-outputs-list">
+                                <li><i class="fas fa-check"></i> End-to-end user flow for the certificate journey</li>
+                                <li><i class="fas fa-check"></i> Two primary personas aligned to business objectives</li>
+                                <li><i class="fas fa-check"></i> Wireframes covering the full information hierarchy</li>
+                                <li><i class="fas fa-check"></i> Hi-fi prototype of the TC Input screen (full-resolution capture)</li>
+                                <li><i class="fas fa-check"></i> SLDS spec sheet &amp; dev handoff — token mapping, zero core overrides</li>
+                                <li><i class="fas fa-check"></i> Annotated design review with recorded stakeholder approvals</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="cs-outputs">
+                            <p class="cs-outputs-title">Problem → decision → result</p>
+                            <div class="cs-trace">
+                                <p class="cs-trace-step"><span class="cs-trace-k">Problem</span> One flat, unstructured form made issuance slow and error-prone.</p>
+                                <p class="cs-trace-step"><span class="cs-trace-k">Decision</span> Guided 3-step progressive disclosure built inside strict SLDS rules.</p>
+                                <p class="cs-trace-step"><span class="cs-trace-k">Result</span> One continuous path with inline validation and no dead ends — signed off by client, engineering and compliance in the end-of-week review.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -186,6 +440,14 @@
                         <p class="section-text">
                             My design, delivered from concept to flow in one week, provided a seamless UX for a complex task. By breaking the flow into logical steps and adhering to SLDS, my solution reduced cognitive load and minimized data-entry errors, enabling organizations to reliably track sustainable material claims.
                         </p>
+                        <div class="cs-outcome">
+                            <p class="cs-outcome-label">End-to-end result, in short</p>
+                            <ul>
+                                <li>Users move through issuance as one guided path instead of hunting through a single overloaded screen.</li>
+                                <li>Engineering received a token-mapped spec sheet that extends SLDS instead of overriding it.</li>
+                                <li>The design was reviewed and signed off by client, engineering and compliance at the end of the same sprint.</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <h2 class="section-heading">Learnings</h2>

@@ -796,6 +796,14 @@ body {
     padding: 32px;
 }
 
+/* ============================================================
+   DESIGN RULE — CHIPS ARE TEXT-ONLY (portfolio-wide)
+   Applies to every chip: .mt-chip, .cs-tag and any future chip.
+   Markup: <span class="mt-chip">Label text</span>
+   Never put icons (<i>) inside a chip — chips are plain text
+   labels. The guard below hides icons so the pill always stays
+   clean, even if one slips into the markup later.
+   ============================================================ */
 .mt-chip {
     display: inline-flex;
     align-items: center;
@@ -814,6 +822,10 @@ body {
     font-size: 13px;
     color: var(--color-gold-light);
 }
+
+/* Rule guard — chips stay text-only even if an icon slips in */
+.mt-chip i,
+.cs-tag i { display: none; }
 
 /* Mini Setup */
 .mt-setup {
@@ -1376,4 +1388,661 @@ body {
         padding: 16px 0;
         transform: rotate(90deg);
     }
+}
+
+/* ============================================================
+   ChainSync evidence modules
+   (1) IA 3-step wizard · (2) SLDS spec sheet · (3) sprint review
+   Re-skinned with the product design tokens from Figma
+   (Source-0clear / ISC): #ffc700 brand yellow, #130c0e black,
+   #e9f8fb blue tint, Calibri / Neo Sans typography.
+   ============================================================ */
+
+/* Shared product type stack (Calibri when available, site font as fallback) */
+.cs-note,
+.cs-ia-before,
+.cs-ia-after,
+.cs-rail-card,
+.cs-spec,
+.cs-callout,
+.sf-meta {
+    font-family: 'Calibri', 'Carlito', 'Segoe UI', 'Poppins', sans-serif;
+}
+
+/* Shared validation note */
+.cs-note {
+    background-color: #fff4cc; /* Brand/Cerello 80 */
+    border-left: 4px solid #ffc700; /* Brand/Cerello */
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2b2426; /* Brand/Black 90 */
+    margin-top: 28px;
+}
+.cs-note strong { font-weight: 700; color: #130c0e; }
+
+/* Anchor offset for the sticky header */
+#ia-3-step-wizard,
+#slds-integration,
+#sprint-validation { scroll-margin-top: 170px; }
+
+/* The evidence row's columns are flex columns so the tag + panels share
+   the row height via flex-grow instead of height:100% (which overflowed
+   the row and overlapped .cs-note) */
+#ia-3-step-wizard .row > .col-lg-5,
+#ia-3-step-wizard .row > .col-lg-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Panel tag — unified with the portfolio chip style (.mt-chip):
+   dark-blue pill, gold-light text, Montserrat 600, full radius.
+   DESIGN RULE: chips are text-only, no icons (see .mt-chip above). */
+.cs-tag {
+    display: inline-flex;
+    align-self: flex-start; /* stay a pill when its column becomes a flex column */
+    align-items: center;
+    gap: 6px;
+    background-color: var(--color-dark-blue); /* #202c53 */
+    border-radius: 100px;
+    padding: 6px 12px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    color: var(--color-gold-light); /* #f1d4aa */
+}
+/* .cs-tag-dark shares the same chip style — all four chips are visually
+   unified with the rest of the portfolio */
+
+/* --------------------------------------------
+   (1) Information Architecture diagram
+   -------------------------------------------- */
+.cs-ia-before {
+    background-color: #ffffff;
+    border: 1px dashed #aeaeae; /* Neutral/70 */
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 auto; /* fill the column so both panels match height */
+}
+.cs-ia-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+.cs-ia-head-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #474e54; /* Secondary/Grey */
+}
+.cs-ia-count {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 16px;
+    background-color: #ffdd66; /* Status/Pending */
+    color: #2b2426; /* Brand/Black 90 */
+    white-space: nowrap;
+}
+/* Neat matrix of field chips: uniform columns, aligned rows,
+   no rotations — reads as an organized flat list */
+.cs-field-cloud {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 132px), 1fr));
+    gap: 8px;
+}
+.cs-field {
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 7px 10px;
+    background-color: #ffffff;
+    border: 1px solid #c9c9c9; /* Neutral/80 */
+    border-radius: 4px;
+    color: #474e54; /* Secondary/Grey */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cs-field.is-more {
+    background-color: transparent;
+    border-style: dashed;
+    color: #747474; /* Neutral/50 */
+    font-weight: 600;
+}
+.cs-flags {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+.cs-flag {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #474e54; /* Secondary/Grey */
+    background-color: #f3f3f3; /* Neutral/95 */
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+    padding: 8px 10px;
+}
+.cs-flag i { color: var(--slds-red, #ea001e); margin-top: 3px; font-size: 11px; }
+
+.cs-arrow-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #130c0e; /* Brand/Black 100 */
+    font-size: 22px;
+}
+
+.cs-ia-after {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1 1 auto; /* grow inside the flex column instead of height:100%,
+                       which overflowed past the row onto .cs-note */
+}
+/* Real capture of the product's 3-step progress rail (Figma 4089:10516) */
+.cs-rail-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background-color: #ffffff;
+    border: 1px solid #c9c9c9;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 32px rgba(92, 92, 92, 0.06);
+    flex: 1 1 auto; /* fill .cs-ia-after without percentage-height overflow */
+}
+.cs-rail-img {
+    display: block;
+    width: 269px; /* native render size */
+    max-width: 100%;
+    height: auto;
+    flex: 0 0 auto;
+}
+.cs-rail-cap {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #474e54; /* Secondary/Grey */
+}
+.cs-rail-cap strong { color: #130c0e; font-weight: 700; }
+
+/* --------------------------------------------
+   (2) SLDS spec sheet — black/brand-yellow skin
+   -------------------------------------------- */
+.cs-spec {
+    background-color: #130c0e; /* Brand/Black 100 */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 32px rgba(92, 92, 92, 0.2);
+    color: #f3f3f3; /* Neutral/95 */
+}
+.cs-spec-head {
+    background-color: #000000;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.cs-spec-title {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ffc700; /* Brand/Cerello */
+}
+.cs-spec-meta {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: #aeaeae; /* Neutral/70 */
+}
+.cs-spec-grid { display: flex; flex-wrap: wrap; }
+.cs-spec-cell {
+    padding: 24px;
+    flex: 1 1 480px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+.cs-spec-cell.full { flex: 1 1 100%; border-right: none; }
+.cs-spec-label {
+    margin: 0 0 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffc700; /* Brand/Cerello */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.cs-spec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Salesforce-style window mockups */
+.sf-win {
+    background-color: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    font-family: 'Salesforce Sans', Arial, Helvetica, sans-serif;
+    color: #181818;
+}
+.sf-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #444444;
+}
+.sf-x { font-size: 14px; color: #747474; }
+.sf-body { padding: 14px; }
+.sf-label {
+    display: block;
+    font-size: 11px;
+    color: #444444;
+    margin-bottom: 4px;
+}
+.sf-req { color: var(--slds-red, #ea001e); margin-left: 2px; }
+.sf-input {
+    font-size: 12px;
+    color: #181818;
+    background-color: #ffffff;
+    border: 1px solid var(--slds-grey, #c9c9c9);
+    border-radius: 4px;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+.sf-input.ph { color: #747474; }
+.sf-caret { color: #747474; font-size: 10px; }
+.sf-foot {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 10px 14px;
+    background-color: #f3f3f3;
+    border-top: 1px solid #e0e0e0;
+}
+.sf-btn {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+.sf-btn.ghost { background-color: #ffffff; border-color: var(--slds-grey, #c9c9c9); color: #181818; }
+.sf-btn.brand { background-color: #0176d3; color: #ffffff; }
+
+.sf-meta {
+    font-family: 'Calibri', 'Carlito', 'Segoe UI', 'Poppins', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #c9c9c9; /* Neutral/80 */
+    margin-top: 14px;
+}
+.sf-meta i { color: #ffc700; margin-right: 6px; } /* Brand/Cerello */
+.sf-meta strong { color: #ffffff; }
+
+/* Real capture of the customized extension (Figma 4089:10578) */
+.cs-shot-card {
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid #c9c9c9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+.cs-shot-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Token mapping */
+.cs-trow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.14);
+}
+.cs-trow:last-child { border-bottom: none; }
+.cs-tkey {
+    flex: 0 0 132px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.cs-tval {
+    flex: 1;
+    font-family: 'Calibri', 'Carlito', 'Segoe UI', 'Poppins', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #c9c9c9; /* Neutral/80 */
+}
+.cs-tval code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    color: #ffdd66; /* Status/Pending */
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 1px 6px;
+    border-radius: 4px;
+}
+.cs-pill {
+    flex: 0 0 auto;
+    font-family: 'Calibri', 'Carlito', 'Segoe UI', 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 16px;
+    white-space: nowrap;
+    background-color: rgba(33, 182, 215, 0.2); /* Secondary/Blue tint */
+    color: #21b6d7; /* Secondary/Blue */
+}
+.cs-pill.theme {
+    background-color: rgba(255, 199, 0, 0.18); /* Brand/Cerello tint */
+    color: #ffc700;
+}
+.cs-pill.plain {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #c9c9c9;
+}
+
+/* --------------------------------------------
+   (3) Sprint validation — annotated prototype
+   -------------------------------------------- */
+.cs-proto-wrap { position: relative; }
+.cs-proto {
+    background-color: #ffffff;
+    border: 1px solid rgba(32, 44, 83, 0.18);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(3, 4, 94, 0.18);
+    font-family: 'Salesforce Sans', Arial, Helvetica, sans-serif;
+    color: #181818;
+}
+.cs-proto-chrome {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #e0e0e0;
+}
+.cs-dot { width: 8px; height: 8px; border-radius: 50%; background-color: #c9c9c9; }
+.cs-url {
+    flex: 1;
+    margin-left: 6px;
+    font-size: 10px;
+    color: #747474;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 100px;
+    padding: 3px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Real screenshot of the TC Input screen (Figma 4089:10423),
+   cropped to the top ~1210 design px (nav → header → action bar →
+   first form cards) via aspect-ratio so the crop scales with width */
+.cs-shot {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1440 / 1210;
+    background-color: #ffffff;
+}
+.cs-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Review pins — FigJam-style markers over the screenshot
+   (positions are % of .cs-shot: x/1440, y/1210 of the design) */
+.cs-pin {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 10px rgba(19, 12, 14, 0.35);
+    z-index: 4;
+    border: 2px solid #ffffff;
+}
+.cs-pin span {
+    font-size: 12px;
+    font-weight: 800;
+    color: #ffffff;
+}
+.cs-pin-1 { top: 22%; left: 8.75%; background-color: #9b51e0; }
+.cs-pin-2 { top: 26%; left: 31%; background-color: #21b6d7; }
+.cs-pin-3 { top: 42.4%; left: 81.5%; background-color: #ffc700; }
+.cs-pin-3 span { color: #130c0e; }
+
+.cs-callout {
+    display: flex;
+    gap: 12px;
+    background-color: #ffffff;
+    border: 1px solid #c9c9c9; /* Neutral/80 */
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 32px rgba(92, 92, 92, 0.08);
+}
+.cs-callout + .cs-callout { margin-top: 12px; }
+.cs-callout-badge {
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: #ffffff;
+}
+.cs-badge-green { background-color: #9b51e0; } /* FigJam review purple */
+.cs-badge-blue { background-color: #21b6d7; } /* Secondary/Blue */
+.cs-badge-gold { background-color: #ffc700; color: #130c0e; } /* Brand/Cerello */
+.cs-callout-role {
+    margin: 0 0 3px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #747474; /* Neutral/50 */
+}
+.cs-callout-title {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #130c0e; /* Brand/Black 100 */
+}
+.cs-callout-text {
+    font-family: 'Calibri', 'Carlito', 'Segoe UI', 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #474e54; /* Secondary/Grey */
+}
+
+@media (max-width: 1156.98px) {
+    /* spec cells stack: remove the vertical divider */
+    .cs-spec-cell { border-right: none; }
+}
+@media (max-width: 991.98px) {
+    .cs-arrow-col { display: none !important; }
+}
+
+/* ============================================================
+   ChainSync case study — additive blocks
+   (design problem & hypothesis · impact outcome · final outputs)
+   ============================================================ */
+
+/* Design problem & hypothesis cards */
+.cs-problem-card {
+    height: 100%;
+    background-color: var(--color-white);
+    border: 1px solid rgba(32, 44, 83, 0.12);
+    border-radius: 4px;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.12);
+    padding: 24px;
+}
+.cs-problem-card-hypo {
+    background-color: var(--color-dark-blue);
+    border-color: var(--color-dark-blue);
+}
+.cs-problem-card-hypo .cs-problem-label { color: var(--color-gold-light); }
+.cs-problem-card-hypo .cs-problem-text { color: var(--color-white); }
+.cs-problem-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-blue);
+    margin-bottom: 10px;
+}
+.cs-problem-text {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Impact — end-to-end result list */
+.cs-outcome { margin-top: 20px; }
+.cs-outcome-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-blue);
+    margin-bottom: 12px;
+}
+.cs-outcome ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.cs-outcome li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.cs-outcome li:last-child { margin-bottom: 0; }
+.cs-outcome li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-dark-blue);
+}
+
+/* Final outputs — handoff package + traceability */
+.cs-outputs {
+    height: 100%;
+    background-color: var(--color-white);
+    border: 1px solid rgba(32, 44, 83, 0.12);
+    border-radius: 4px;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.12);
+    padding: 32px;
+}
+.cs-outputs-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-blue);
+    margin-bottom: 18px;
+}
+.cs-outputs-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.cs-outputs-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.55;
+}
+.cs-outputs-list li:last-child { margin-bottom: 0; }
+.cs-outputs-list i {
+    color: var(--color-dark-blue);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 2px;
+}
+.cs-trace-step {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 14px 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(32, 44, 83, 0.12);
+}
+.cs-trace-step:first-child { padding-top: 0; }
+.cs-trace-step:last-child { border-bottom: none; padding-bottom: 0; }
+.cs-trace-k {
+    display: inline-block;
+    background-color: var(--color-dark-blue);
+    color: var(--color-gold-light);
+    border-radius: 100px;
+    padding: 2px 10px;
+    margin-right: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    vertical-align: 1px;
+}
+
+@media (max-width: 767.98px) {
+    .cs-outputs { padding: 22px; }
+    .cs-problem-card { padding: 20px; }
+}
+
+@media (max-width: 767.98px) {
+    .cs-note { padding: 16px 18px; }
+    .cs-spec-cell { padding: 18px; }
+    .cs-trow { flex-wrap: wrap; }
+    .cs-tkey { flex: 0 0 100%; margin-bottom: 4px; }
+    .cs-rail-card { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .cs-pin { width: 22px; height: 22px; }
+    .cs-pin span { font-size: 10px; }
 }
