@@ -1906,7 +1906,7 @@ body {
 
 /* ============================================================
    ChainSync case study — additive blocks
-   (design problem & hypothesis · impact outcome · final outputs)
+   (design problem & hypothesis · final outputs)
    ============================================================ */
 
 /* Design problem & hypothesis cards */
@@ -1938,42 +1938,9 @@ body {
     margin-bottom: 0;
 }
 
-/* Impact — end-to-end result list */
-.cs-outcome { margin-top: 20px; }
-.cs-outcome-label {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-dark-blue);
-    margin-bottom: 12px;
-}
-.cs-outcome ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 0;
-}
-.cs-outcome li {
-    position: relative;
-    padding-left: 22px;
-    margin-bottom: 10px;
-    font-size: 15px;
-    line-height: 1.6;
-}
-.cs-outcome li:last-child { margin-bottom: 0; }
-.cs-outcome li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 8px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--color-dark-blue);
-}
-
 /* Final outputs — handoff package + traceability */
 .cs-outputs {
+    position: relative;
     height: 100%;
     background-color: var(--color-white);
     border: 1px solid rgba(32, 44, 83, 0.12);
@@ -1981,13 +1948,21 @@ body {
     box-shadow: 0 4px 2px rgba(0, 0, 0, 0.12);
     padding: 32px;
 }
-.cs-outputs-title {
+/* Card header chip — overlaps the card's top edge (Step badge style) */
+.cs-outputs-chip {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background-color: var(--color-dark-blue);
+    color: var(--color-gold-light);
+    border-radius: 100px;
+    padding: 6px 18px;
+    margin: 0;
     font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-dark-blue);
-    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    z-index: 1;
 }
 .cs-outputs-list {
     list-style: none;
@@ -2017,20 +1992,8 @@ body {
     border-bottom: 1px solid rgba(32, 44, 83, 0.12);
 }
 .cs-trace-step:first-child { padding-top: 0; }
+.cs-trace-step .mt-tag { margin-bottom: 0; vertical-align: 1px; }
 .cs-trace-step:last-child { border-bottom: none; padding-bottom: 0; }
-.cs-trace-k {
-    display: inline-block;
-    background-color: var(--color-dark-blue);
-    color: var(--color-gold-light);
-    border-radius: 100px;
-    padding: 2px 10px;
-    margin-right: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    vertical-align: 1px;
-}
 
 @media (max-width: 767.98px) {
     .cs-outputs { padding: 22px; }
