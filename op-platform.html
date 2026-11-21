@@ -102,49 +102,39 @@
             </div>
         </section>
 
-        <!-- Stage 1: Problem -->
-        <section class="py-5">
+        <!-- Stage 1: Problem & Hypothesis -->
+        <section class="py-5" id="design-problem">
             <div class="container-custom">
-                <h2 class="section-stage-title mb-5">1. Problem</h2>
+                <h2 class="section-stage-title mb-5">1. Problem &amp; Hypothesis</h2>
 
                 <div class="container-custom my-5">
                     <div class="row align-items-center">
-                       <div class="col-lg-6">
-                           <div class="text-center">
-                               <img src="assets/img/op-002.png" alt="Wireframes" class="img-fluid">
-                           </div>
-                       </div>
-                       <div class="col-lg-6">
-                           
-                           <p class="subsection-description mb-4">
-
-                            This project presented three significant, real-world UX challenges that had to be solved simultaneously.
+                        <div class="col-lg-6">
+                            <div class="text-center">
+                                <img src="assets/img/op-002.png" alt="Wireframes" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="subsection-description mb-4">
+                                This project presented three significant, real-world UX challenges that had to be solved simultaneously.
+                            </p>
                             <ol class="subsection-description mb-4">
                                 <li class="mb-2">A strict technical constraint: the entire application had to be built using the Oracle JET platform, limiting all designs to its specific components.</li>
                                 <li class="mb-2">A mobile-first mandate required an experience that scaled flawlessly from a simple mobile view to a data-heavy desktop for complex tasks.</li>
                                 <li class="mb-2">Finally, the challenge was meeting enterprise-level accessibility guidelines to ensure the solution was usable by all customers, ensuring an inclusive experience.</li>
                             </ol>
-
-                            <b>Strategic Goal:</b> My objective was to deliver a high-performance, accessible self-service portal within the rigid constraints of the Oracle JET framework, ensuring that enterprise-level complexity never compromised mobile-first usability.
-                           </p>
-                       </div>
+                            <p class="subsection-description mb-0">
+                                <b>Strategic Goal:</b> My objective was to deliver a high-performance, accessible self-service portal within the rigid constraints of the Oracle JET framework, ensuring that enterprise-level complexity never compromised mobile-first usability.
+                            </p>
+                        </div>
                     </div>
-                    </div>
-
-                
                 </div>
-            </div>
-        </section>
 
-        <!-- Design Problem & Hypothesis -->
-        <section class="py-5" id="design-problem">
-            <div class="container-custom">
-                <h2 class="section-stage-title mb-4">The design problem &amp; hypothesis</h2>
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="cs-problem-card">
                             <h3 class="cs-problem-label">What was asked vs. what I saw</h3>
-                            <p class="cs-problem-text">The business asked for a unified, self-service portal with a single view of every account. What made it hard wasn't the screens — it was the constraint: every design had to live inside Oracle JET's components while scaling from phone to data-dense desktop.</p>
+                            <p class="cs-problem-text">The business asked for a unified, self-service portal with a single view of every account. What I saw was customers hunting for the same basic answers across scattered screens — the real gap was fragmented data, not missing features.</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -154,11 +144,11 @@
                         </div>
                     </div>
                 </div>
-                <p class="subsection-description mt-4 mb-0">How I set myself up to solve it: translate the requirements into feasible components first (Stage 2), then assemble the end-to-end solution (Stage 3).</p>
+                <p class="subsection-description mt-4 mb-0">How I set myself up to solve it: translate the requirements into feasible components first (section 2), then assemble the end-to-end solution (section 3).</p>
             </div>
         </section>
 
-        <!-- Stage 2: Solution -->
+        <!-- Stage 2: Design and Technical Logic -->
         <section class="py-5">
             <div class="container-custom">
                 <h2 class="section-stage-title mb-5">2. Design and Technical Logic</h2>
@@ -195,6 +185,9 @@
 
                 <div class="mb-5">
                     <h3 class="subsection-title">C. Accessibility Governance</h3>
+                    <p class="subsection-description mb-4">
+                        Accessibility was treated as a governance rule, not a final check: every component was audited against WCAG AA while it was still being designed, and proactive feasibility reviews caught contrast, focus and keyboard issues before engineering picked up the work. Because the portal runs on native Oracle JET components, inclusive patterns had to be proven inside the framework's own limits — no custom exceptions.
+                    </p>
                     
                     <div class="row g-4">
                         <div class="col-lg-12">
@@ -213,50 +206,45 @@
             <div class="container-custom">
                 <h2 class="section-stage-title mb-5">3. Solution</h2>
 
-                <div>
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                           
-                            <p class="subsection-description">
- 
-                             This project presented three significant, real-world UX challenges that had to be solved simultaneously.
-                             <ul>
-                                <li class="mb-2">Architected a responsive, data-rich interface that successfully balanced technical framework constraints with a high-density information architecture.</li>
-                                <li class="mb-2">Developed the end-to-end Service Request ecosystem, including intricate messaging flows and site navigation, bridging the gap between Low-Fi logic and Hi-Fi execution.</li>
-                                <li class="mb-2">Consolidated fragmented enterprise data—from service history to quotes—into a single, transparent dashboard for total account visibility.</li>
-                                <li class="mb-2">Engineered a "mobile-first, desktop-deep" strategy, ensuring field users have on-the-go access while maintaining analytical depth for desktop management.</li>
-                            </ul>
-                            </p>
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <p class="subsection-description mb-4">
+                            The portal is built around the jobs customers come to do — check service history, pay invoices, review quotes and raise requests — on the device that fits the moment.
+                        </p>
+                        <ul class="subsection-description mb-4">
+                            <li class="mb-2">Architected a responsive, data-rich interface that successfully balanced technical framework constraints with a high-density information architecture.</li>
+                            <li class="mb-2">Developed the end-to-end Service Request ecosystem, including intricate messaging flows and site navigation, bridging the gap between Low-Fi logic and Hi-Fi execution.</li>
+                            <li class="mb-2">Consolidated fragmented enterprise data—from service history to quotes—into a single, transparent dashboard for total account visibility.</li>
+                            <li class="mb-2">Engineered a "mobile-first, desktop-deep" strategy, ensuring field users have on-the-go access while maintaining analytical depth for desktop management.</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <img src="assets/img/op-006.png" alt="Problem Statement" class="img-fluid">
                         </div>
-                       <div class="col-lg-6">
-                           <div class="text-center">
-                               <img src="assets/img/op-006.png" alt="Problem Statement" class="img-fluid">
-                           </div>
-                       </div>
-                       <div class="container-custom my-5">
-                       
-                        
-                        <div class="row mb-5">
-                            <div class="col-lg-6 ">
-                                <h3 class="subsection-title">Desktop </h3>
-                                <img src="assets/img/op-007.png" alt="Flow Diagram" class="img-fluid">
-                            </div>
-                            <div class="col-lg-6 ">
-                                <h3 class="subsection-title">Mobile</h3>
-                                <img src="assets/img/op-008.png" alt="Flow Diagram" class="img-fluid">
-                            </div>                            
-                        </div>    
                     </div>
-                       
-                    </div>
-                    </div>
+                </div>
 
-                
+                <div class="container-custom my-5">
+                    <div class="row mb-5">
+                        <div class="col-lg-6">
+                            <h3 class="subsection-title">Desktop</h3>
+                            <p class="subsection-description mb-4">
+                                The management view leans into density: service history, payments and quotes sit side by side so back-office teams can scan, compare and act without leaving the dashboard.
+                            </p>
+                            <img src="assets/img/op-007.png" alt="Flow Diagram" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6">
+                            <h3 class="subsection-title">Mobile</h3>
+                            <p class="subsection-description mb-4">
+                                The field view strips that down to the essentials — status, requests and payments in a single column that stays readable on a phone screen.
+                            </p>
+                            <img src="assets/img/op-008.png" alt="Flow Diagram" class="img-fluid">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-              
 
         <!-- Impact & Final Outputs Section (unified closing) -->
         <section class="py-5" id="impact-outputs">
@@ -267,9 +255,9 @@
                 <div class="row g-4 mb-5">
                     <div class="col-lg-6">
                         <div class="cs-outputs">
-                            <p class="cs-outputs-chip">Problem → decision → result</p>
+                            <p class="cs-outputs-chip">Context &amp; constraint → decision → result</p>
                             <div class="cs-trace">
-                                <p class="cs-trace-step"><span class="mt-tag mt-tag-flush">Problem</span> Critical account information — service history, payments and quotes — was fragmented, while every screen had to run on the rigid Oracle JET framework.</p>
+                                <p class="cs-trace-step"><span class="mt-tag mt-tag-flush">Context &amp; constraint</span> A unified self-service portal for industrial customers, with account data scattered across systems and the build locked to Oracle JET's fixed component set.</p>
                                 <p class="cs-trace-step"><span class="mt-tag mt-tag-flush">Decision</span> A modular "mobile-first, desktop-deep" component architecture built only with native JET components, governed by proactive WCAG AA feasibility audits.</p>
                                 <p class="cs-trace-step"><span class="mt-tag mt-tag-flush">Result</span> The end-to-end Service Request ecosystem — messaging flows, site navigation and a consolidated account dashboard — delivered ready for engineering.</p>
                             </div>
